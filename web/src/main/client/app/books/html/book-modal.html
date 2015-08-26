@@ -1,0 +1,21 @@
+<div>
+    <div class="modal-header">
+        <div flash-message="5000"></div>
+        <h3 class="modal-title">Zmień tytuł książki!</h3>
+    </div>
+    <form name="titleForm" class="form-horizontal" novalidate id="titleForm">
+    <div class="modal-body">
+            <div class="form-group">
+                <label class="col-xs-4 control-label">Podaj nowy tytuł książki:</label>
+
+                <div class="col-xs-5">
+                    <input type="text" class="form-control" ng-model="title" ng-required="true" maxlength="20">
+                </div>
+            </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-success" ng-click="changeTitle()">Zmień</button>
+        <button class="btn btn-warning" ng-click="$dismiss()">Zamknij</button>
+    </div>
+    </form>
+</div>

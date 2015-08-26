@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<body>
+<div flash-message="5000"></div>
+
+<form name="addBookForm" class="form-inline" style="margin-top: 20px" novalidate id="addBookForm">
+    <div class="form-group">
+        <label>Podaj tytuł książki:</label>
+            <input type="text" class="form-control" ng-model="book.title" ng-required="true" maxlength="20">
+    </div>
+    <div class="form-group">
+            <button class="btn btn-default" ng-click="addBook()">Dodaj książkę
+            </button>
+            <button class="btn btn-default" ng-click="addAuthor()">Dodaj autora</button>
+    </div>
+</form>
+<form name="addForm" class="form-inline" style="margin-top: 20px">
+    <div class="form-group">
+    <label>Autorzy:</label>
+        </div>
+
+<table class="bookList">
+    <tr>
+        <th>Imię</th>
+        <th>Nazwisko</th>
+        <th>Usuń</th>
+    </tr>
+    <tr ng-repeat="author in book.authors">
+        <td>{{ author.firstName }}</td>
+        <td>{{ author.lastName }}</td>
+        <td>
+            <button class="btn btn-default" ng-click="deleteAuthor(author)">Usuń autora</button>
+        </td>
+    </tr>
+</table>
+    </form>
+
+</body>
+</html>
