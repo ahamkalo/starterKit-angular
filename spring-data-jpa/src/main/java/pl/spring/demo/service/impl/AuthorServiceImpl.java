@@ -22,13 +22,4 @@ public class AuthorServiceImpl implements AuthorService{
         return AuthorMapper.map2ToList(authorRepository.findAll());
     }
 
-    @Override
-    public List<AuthorTo> findAuthorsByPrefix() {
-        return null;
-    }
-
-    @Override
-    public AuthorTo saveAuthor(AuthorTo authorTo) {
-        return null;
-    }
 }

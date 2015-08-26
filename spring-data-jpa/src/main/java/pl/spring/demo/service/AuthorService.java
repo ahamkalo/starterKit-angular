@@ -8,7 +8,4 @@ public interface AuthorService {
 
     List<AuthorTo> findAllAuthors();
 
-
-    List<AuthorTo> findAuthorsByPrefix();
-    AuthorTo saveAuthor(AuthorTo authorTo);
 }
