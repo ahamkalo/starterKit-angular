@@ -1,4 +1,4 @@
-insert into book (id, title) values (1, 'Pierwsza ksiazka');
+insert into book (id, title) values (1, 'Pierwsza książka');
 insert into book (id, title) values (2, 'Druga ksiazka');
 insert into book (id, title) values (3, 'Trzecia ksiazka');
 insert into book (id, title) values (4, 'Czwarta ksiazka');

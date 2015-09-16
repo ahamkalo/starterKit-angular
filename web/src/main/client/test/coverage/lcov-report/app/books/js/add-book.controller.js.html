@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for ./app/books/js/add-book.controller.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../../prettify.css">
+    <link rel="stylesheet" href="../../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header high">
+    <h1>Code coverage report for <span class="entity">./app/books/js/add-book.controller.js</span></h1>
+    <h2>
+        Statements: <span class="metric">100% <small>(31 / 31)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">88.89% <small>(16 / 18)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">100% <small>(9 / 9)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">100% <small>(31 / 31)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../../index.html">All files</a> &#187; <a href="index.html">./app/books/js/</a> &#187; add-book.controller.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62</td><td class="line-coverage"><span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">angular.module('app.books').controller('AddBookController', function ($scope, $window, $location, addBookService, Flash, $modal) {
+        'use strict';
+&nbsp;
+        $scope.book = {title: '', authors: []};
+&nbsp;
+        $scope.addBook = function () {
+            var validation = $scope.addBookForm.$valid;
+            var authorsCount = $scope.book.authors.length;
+&nbsp;
+            if ((validation === true) &amp;&amp; (authorsCount &gt; 0)) {
+                addBookService.addBook($scope.book).
+                    then(function () {
+                        Flash.create('success', 'Książka została dodana.', 'custom-class');
+                        $location.url('/books/book-list');
+                    }, function () {
+                        Flash.create('danger', 'Wyjątek', 'custom-class');
+                    });
+            }
+            else if((validation === false) &amp;&amp; (authorsCount &gt; 0)){
+                Flash.create('danger', 'Nie został wpisany tytuł książki.', 'custom-class');
+            }
+            else if((validation === true) &amp;&amp; (authorsCount === 0)){
+                Flash.create('danger', 'Nie został dodany żaden autor książki.', 'custom-class');
+            }
+            else <span class="missing-if-branch" title="else path not taken" >E</span>if((validation === false) &amp;&amp; (authorsCount === 0)){
+                Flash.create('danger', 'Nie został wpisany tytuł książki i nie dodano żadnego autora.', 'custom-class');
+            }
+        };
+&nbsp;
+        $scope.addAuthor = function () {
+            var modalInstance = $modal.open(options);
+&nbsp;
+            modalInstance.result.then(function (response) {
+                $scope.book.authors.push(response);
+                Flash.create('success', 'Autor został dodany.', 'custom-class');
+            }, function () {
+                Flash.create('danger', 'Wyjątek', 'custom-class');
+            });
+        };
+&nbsp;
+        var options = {
+            templateUrl: 'books/html/author-modal.html',
+            controller: 'AuthorModalController'
+        };
+&nbsp;
+        $scope.deleteAuthor = function (author) {
+            removeAuthor(author);
+            Flash.create('success', 'Autor został usunięty.', 'custom-class');
+        };
+&nbsp;
+        var removeAuthor = function (author) {
+            for (var i = 0; i &lt; $scope.book.authors.length; i = i + 1) {
+                <span class="missing-if-branch" title="else path not taken" >E</span>if ($scope.book.authors[i] === author) {
+                    $scope.book.authors.splice(i, 1);
+                    break;
+                }
+            }
+        };
+    }
+)
+;
+&nbsp;</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Wed Aug 26 2015 11:40:33 GMT+0200 (W. Europe Daylight Time)</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>
